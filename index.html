@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Operacional GCMSC - Carnaval 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+        }
+
+        .chart-container-tall {
+            height: 600px;
+        }
+
+        .chart-timeline-wrapper {
+            height: 1600px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 10px;
+        }
+
+        .bg-navy { background-color: #1e3a8a; }
+        .text-navy { color: #1e3a8a; }
+        .border-incident { border-left: 4px solid #f43f5e; }
+        
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Contentor do Brasão */
+        .brasao-container {
+            background-color: white;
+            padding: 10px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #e2e8f0;
+        }
+
+        .badge-img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+        }
+    </style>
+    <!-- 
+    ANÁLISE DE DADOS E DESIGN:
+    - Nomes dos Blocos: Atualizados conforme a tabela de 48 registros.
+    - Localidades: 18 pontos mapeados (Centro Histórico 18, Rosa Elze 6, etc).
+    - Turnos: Consolidados em Manhã, Tarde e Noite.
+    - Ocorrência: Palco da Bica dos Pintos (Lucas Moura) marcada como alteração (14/02).
+    - Identidade Visual: Brasão GCMSC integrado no topo e rodapé.
+    -->
+</head>
+<body class="text-slate-900 overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="bg-navy text-white shadow-2xl sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <div class="brasao-container w-20 h-20 md:w-28 md:h-28 shrink-0">
+                    <img src="Gemini_Generated_Image_gvy4y8gvy4y8gvy4.png" 
+                         alt="Brasão GCMSC" 
+                         class="badge-img">
+                </div>
+                
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold leading-tight uppercase tracking-tight">Estatísticas Operacionais GCMSC</h1>
+                    <p class="text-blue-300 text-xs md:text-sm uppercase tracking-widest font-semibold">Guarda Civil Municipal • São Cristóvão - SE</p>
+                </div>
+            </div>
+            <div class="mt-4 md:mt-0 bg-blue-900/50 px-5 py-2 rounded-full border border-blue-700 text-center flex items-center">
+                <span class="text-amber-400 mr-2 text-xl">📊</span>
+                <span class="text-sm font-medium tracking-tight">Período Consolidado: 06/02 a 22/02</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-10 space-y-12">
+
+        <!-- Intro -->
+        <section class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-extrabold text-navy mb-4 uppercase">Cronograma Detalhado de Atividades</h2>
+            <p class="text-slate-600 text-lg leading-relaxed">
+                Relatório oficializado dos blocos e eventos atendidos pela <strong>Guarda Civil Municipal de São Cristóvão</strong> durante o ciclo carnavalesco. Os indicadores demonstram o sucesso da estratégia de segurança pública e o planejamento eficaz do efetivo durante o ciclo festivo.
+            </p>
+        </section>
+
+        <!-- KPI Summary -->
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <div class="bg-white p-6 rounded-2xl card-shadow border-b-4 border-blue-500 text-center">
+                <span class="block text-3xl font-black text-blue-600">48</span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Eventos Atendidos</span>
+            </div>
+            <div class="bg-white p-6 rounded-2xl card-shadow border-b-4 border-amber-500 text-center">
+                <span class="block text-3xl font-black text-amber-500">18</span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Localidades</span>
+            </div>
+            <div class="bg-white p-6 rounded-2xl card-shadow border-b-4 border-emerald-500 text-center">
+                <span class="block text-3xl font-black text-emerald-500">97.9%</span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Normalidade</span>
+            </div>
+            <div class="bg-white p-6 rounded-2xl card-shadow border-b-4 border-rose-500 text-center">
+                <span class="block text-3xl font-black text-rose-500">01</span>
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Alteração</span>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="bg-white rounded-3xl shadow-lg p-6 md:p-10 border border-slate-100">
+            <div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4 border-b pb-6">
+                <div>
+                    <h3 class="text-2xl font-bold text-navy mb-1">Mapeamento de Blocos por Data</h3>
+                    <p class="text-slate-500 text-sm italic">Inventário nominal fiel aos registros oficiais da corporação.</p>
+                </div>
+                <div class="flex gap-4 text-[11px] font-bold uppercase text-slate-500 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200">
+                    <div class="flex items-center"><span class="w-4 h-4 bg-blue-500 rounded-sm mr-2 shadow-sm"></span> Sem Alterações</div>
+                    <div class="flex items-center"><span class="w-4 h-4 bg-rose-500 rounded-sm mr-2 shadow-sm"></span> Com Alteração</div>
+                </div>
+            </div>
+            <div class="overflow-y-auto max-h-[600px] custom-scrollbar bg-slate-50 rounded-2xl p-4 border border-slate-100">
+                <div class="chart-timeline-wrapper">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </div>
+            <p class="mt-4 text-center text-slate-400 text-xs italic">* Use a barra de rolagem lateral para visualizar os 48 blocos nominais.</p>
+        </section>
+
+        <!-- Turnos e Status -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col border border-slate-50">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-navy mb-2">Análise por Turnos</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">A maior emprego operacional concentrou-se no período da <strong>Tarde (68,8%)</strong>.</p>
+                </div>
+                <div class="chart-container flex-grow">
+                    <canvas id="turnoChart"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-lg p-8 flex flex-col border border-slate-50">
+                <div class="mb-6">
+                    <h3 class="text-2xl font-bold text-navy mb-2">Status das Ocorrências</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">As festividades transcorreram em normalidade absoluta em 97,9% dos eventos.</p>
+                </div>
+                <div class="chart-container flex-grow">
+                    <canvas id="statusChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detalhamento de Ocorrência -->
+        <section class="bg-red-50/50 border border-red-100 rounded-3xl p-6 md:p-10 shadow-sm">
+            <h3 class="text-xl font-bold text-rose-700 mb-8 flex items-center">
+                <span class="mr-3 text-2xl">⚠️</span> Detalhamento da Ocorrência (2,1%)
+            </h3>
+            <div class="bg-white rounded-2xl p-6 md:p-8 shadow-md border-incident grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="space-y-1">
+                    <span class="text-[10px] uppercase font-black text-slate-400 tracking-widest">Local</span>
+                    <p class="text-lg font-bold text-slate-800">Palco da Bica dos Pintos</p>
+                </div>
+                <div class="space-y-1">
+                    <span class="text-[10px] uppercase font-black text-slate-400 tracking-widest">Evento / Data</span>
+                    <p class="text-lg font-bold text-slate-800">Lucas Moura e Samba Deles (14/02)</p>
+                </div>
+                <div class="space-y-1">
+                    <span class="text-[10px] uppercase font-black text-slate-400 tracking-widest">Desfecho</span>
+                    <p class="text-lg font-bold text-slate-800">Situação controlada, ROP lavrado.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Localidades Bar Chart -->
+        <section class="bg-white rounded-3xl shadow-lg p-8 border border-slate-50">
+            <div class="mb-8">
+                <h3 class="text-xl font-bold text-navy">Presença Territorial (Volume por Localidade)</h3>
+                <p class="text-sm text-slate-500 mt-1">Comparativo de densidade operacional conforme a tabela de distribuição geográfica.</p>
+            </div>
+            <div class="chart-container chart-container-tall">
+                <canvas id="geoChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Log Completo de Eventos -->
+        <section class="bg-white rounded-3xl shadow-lg p-8 border border-slate-100">
+            <div class="flex justify-between items-center mb-8">
+                <h3 class="text-2xl font-bold text-navy uppercase tracking-tighter">Log Oficial de Eventos</h3>
+                <span class="bg-blue-100 text-blue-700 text-xs font-bold px-4 py-1.5 rounded-full">48 Registros Nominais</span>
+            </div>
+            <div id="fullEventLog" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[500px] overflow-y-auto custom-scrollbar pr-4">
+                <!-- Populado via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Conclusão Operacional -->
+        <footer class="bg-navy text-white rounded-3xl p-12 md:p-20 text-center space-y-8 shadow-2xl relative overflow-hidden flex flex-col items-center">
+            <div class="brasao-container w-28 h-28 md:w-40 md:h-40 mb-6">
+                <img src="Gemini_Generated_Image_gvy4y8gvy4y8gvy4.png" 
+                     alt="Selo GCMSC" 
+                     class="badge-img">
+            </div>
+            
+            <div class="relative z-10 space-y-8">
+                <h3 class="text-3xl md:text-4xl font-bold uppercase tracking-wide">Conclusão Operacional</h3>
+                <p class="max-w-4xl mx-auto text-blue-100 text-lg md:text-xl leading-relaxed font-light">
+                    Os dados consolidam a GMSC como um pilar fundamental da segurança pública municipal. O planejamento estratégico permitiu que São Cristóvão celebrasse o Carnaval em clima de paz, com uma taxa de sucesso operacional de quase 98%.
+                </p>
+                <div class="flex justify-center gap-3 text-amber-400 text-4xl">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <div class="pt-10 text-[10px] uppercase tracking-[0.6em] text-blue-400 font-bold opacity-80">
+                    GCMSC • Guarda Civil Municipal • 2026
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- HELPERS ---
+        function wrapLabel(str, maxwidth = 16) {
+            if (typeof str !== 'string' || str.length <= maxwidth) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxwidth) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const tooltipConfig = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            return Array.isArray(label) ? label.join(' ') : label;
+                        }
+                    }
+                }
+            }
+        };
+
+        // --- DATASET OFICIAL (CONFORME TABELA ENVIADA) ---
+        const eventsData = [
+            { name: "Pisa Mais Festival", date: "06/02", loc: "Rosa Elze" },
+            { name: "Bloquinhos dos Amigos", date: "07/02", loc: "Pedreiras" },
+            { name: "Bloco Desca Daí", date: "08/02", loc: "Tinharé" },
+            { name: "Bloco Fervorando", date: "08/02", loc: "Eduardo Gomes" },
+            { name: "Bloco do Inferninho", date: "12/02", loc: "Rosa Elze" },
+            { name: "Bloco das Poderosas", date: "13/02", loc: "Rosa Elze" },
+            { name: "Bloco dos Serviços Socioassistenciais", date: "13/02", loc: "Centro Histórico" },
+            { name: "Bloco da Saúde", date: "13/02", loc: "Centro Histórico" },
+            { name: "Bloco Centro Educacional Prado Menezes", date: "13/02", loc: "Centro Histórico" },
+            { name: "Bloco Carnavalesco Escola Joana João", date: "13/02", loc: "Centro Histórico" },
+            { name: "Bloco Colégio Sanclau", date: "13/02", loc: "Eduardo Gomes" },
+            { name: "Bloco da E.M.E.F Maria Oliveira", date: "13/02", loc: "Madre Paulina" },
+            { name: "Palco da Bica dos Pintos - Lucas Moura e Samba Deles", date: "14/02", loc: "Bica dos Pintos", alert: true },
+            { name: "Bloquinho Filhos do Caípe Velho", date: "14/02", loc: "Caípe Velho" },
+            { name: "Bloco Fundico", date: "14/02", loc: "Tinharé" },
+            { name: "Bloco do Borreia", date: "15/02", loc: "Eduardo Gomes" },
+            { name: "Bloco Cabrita Folia", date: "15/02", loc: "Povoado Cabrita" },
+            { name: "Bloco Caju Fest", date: "15/02", loc: "Cajueiro" },
+            { name: "Palco da Bica dos Pintos - Tô Nessa e Dane Luz", date: "15/02", loc: "Bica dos Pintos" },
+            { name: "Bloco Morde Fronha", date: "15/02", loc: "Centro Histórico" },
+            { name: "Bloco Amigos de MS", date: "15/02", loc: "Centro Histórico" },
+            { name: "Bloquinho do FASC", date: "15/02", loc: "Centro Histórico" },
+            { name: "Bloco Zé Folia", date: "15/02", loc: "Centro Histórico" },
+            { name: "Palco Praça da Matriz", date: "15/02", loc: "Centro Histórico" },
+            { name: "Bloco da Alegria", date: "15/02", loc: "Tijuquinha" },
+            { name: "Bloco Caju FOLIA", date: "15/02", loc: "Pov. Cajueiro" },
+            { name: "Bloco Zé Folia", date: "15/02", loc: "Centro Histórico" },
+            { name: "Carnalot", date: "16/02", loc: "Loteamento Lauro Rocha" },
+            { name: "Bloco Cantinho do Céu Fest", date: "16/02", loc: "Cantinho do Céu" },
+            { name: "Bloco Juntos Somos Mais Fortes", date: "16/02", loc: "Tijuquinha" },
+            { name: "Bloco Sodahnois", date: "16/02", loc: "Alto da Divinéa" },
+            { name: "Palco Praça da Matriz", date: "16/02", loc: "Centro Histórico" },
+            { name: "Bloco Corno Vaqueiro", date: "16/02", loc: "Centro Histórico" },
+            { name: "Bloco Amigos de MS 2", date: "17/02", loc: "Centro Histórico" },
+            { name: "Saco da Madrugada", date: "17/02", loc: "Colônia Miranda" },
+            { name: "Bloco das Incubadas", date: "17/02", loc: "Madre Paulina" },
+            { name: "Bloco as Piranhas", date: "17/02", loc: "Apicum" },
+            { name: "Bloco das Poderosas", date: "17/02", loc: "Rosa Elze" },
+            { name: "Bloco Flapaixão", date: "17/02", loc: "Eduardo Gomes" },
+            { name: "Bloco Tá ON", date: "17/02", loc: "Centro Histórico" },
+            { name: "Bloquinho do FASC", date: "17/02", loc: "Centro Histórico" },
+            { name: "Bloco Zé Folia", date: "17/02", loc: "Centro Histórico" },
+            { name: "Bloco João Bebe Todas", date: "17/02", loc: "Centro Histórico" },
+            { name: "Palco Praça da Matriz", date: "17/02", loc: "Centro Histórico" },
+            { name: "Bloco Saco da Madrugada", date: "17/02", loc: "Rita Cacete" },
+            { name: "Bloco Zé Folia", date: "17/02", loc: "Centro Histórico" },
+            { name: "Bloco Todo Dia eu Bebo", date: "22/02", loc: "Rosa Elze" },
+            { name: "Bloco Xodó Eletrico", date: "22/02", loc: "Eduardo Gomes" }
+        ];
+
+        // Ordenar por data para exibição correta
+        eventsData.sort((a,b) => a.date.localeCompare(b.date));
+
+        // População do Log de Eventos
+        const logContainer = document.getElementById('fullEventLog');
+        eventsData.forEach(ev => {
+            const card = document.createElement('div');
+            card.className = `p-4 rounded-xl border shadow-sm transition-all hover:border-blue-300 flex flex-col justify-between ${ev.alert ? 'bg-red-50 border-red-200' : 'bg-slate-50 border-slate-100'}`;
+            card.innerHTML = `
+                <div class="flex justify-between items-start mb-2">
+                    <span class="text-[10px] font-bold text-blue-600 uppercase tracking-tighter">${ev.loc}</span>
+                    <span class="text-[10px] font-bold text-slate-400 bg-white px-2 py-0.5 rounded shadow-sm">${ev.date}</span>
+                </div>
+                <p class="text-sm font-semibold text-slate-800 leading-tight">${ev.name}</p>
+            `;
+            logContainer.appendChild(card);
+        });
+
+        // --- CHART GENERATION ---
+
+        // 1. Timeline Chart
+        const ctxTimeline = document.getElementById('timelineChart').getContext('2d');
+        new Chart(ctxTimeline, {
+            type: 'bar',
+            data: {
+                labels: eventsData.map(e => wrapLabel(`${e.name} (${e.loc})`)),
+                datasets: [{
+                    label: 'Dia em Fevereiro',
+                    data: eventsData.map(e => parseInt(e.date.split('/')[0])),
+                    backgroundColor: eventsData.map(e => e.alert ? '#f43f5e' : '#3b82f6'),
+                    borderRadius: 20,
+                    barThickness: 12
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false }, ...tooltipConfig.plugins },
+                scales: { 
+                    x: { min: 6, max: 23, ticks: { callback: v => v + '/02' } },
+                    y: { ticks: { font: { size: 9, weight: 'bold' } } }
+                }
+            }
+        });
+
+        // 2. Turnos Chart
+        const ctxTurno = document.getElementById('turnoChart').getContext('2d');
+        new Chart(ctxTurno, {
+            type: 'doughnut',
+            data: {
+                labels: ["Tarde (12h-18h)", "Manhã (05h-12h)", "Noite/Madrugada"].map(l => wrapLabel(l)),
+                datasets: [{
+                    data: [33, 12, 3],
+                    backgroundColor: ['#f59e0b', '#3b82f6', '#1e3a8a'],
+                    borderWidth: 0,
+                    hoverOffset: 15
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { usePointStyle: true, padding: 25, font: { size: 11 } } },
+                    ...tooltipConfig.plugins
+                },
+                cutout: '72%'
+            }
+        });
+
+        // 3. Status Chart
+        const ctxStatus = document.getElementById('statusChart').getContext('2d');
+        new Chart(ctxStatus, {
+            type: 'pie',
+            data: {
+                labels: ["Sem Alterações", "Com Alteração"].map(l => wrapLabel(l)),
+                datasets: [{
+                    data: [47, 1],
+                    backgroundColor: ['#10b981', '#ef4444'],
+                    borderColor: '#ffffff',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { usePointStyle: true, padding: 25, font: { size: 11 } } },
+                    ...tooltipConfig.plugins
+                }
+            }
+        });
+
+        // 4. Geographical Chart
+        const ctxGeo = document.getElementById('geoChart').getContext('2d');
+        const geoLabels = ["Centro Histórico", "Rosa Elze", "Eduardo Gomes", "Tinharé", "Madre Paulina", "Bica dos Pintos", "Tijuquinha", "Lauro Rocha", "Apicum", "Colônia Miranda", "Alto da Divinéa", "Cantinho do Céu", "Cajueiro", "Pov. Cajueiro", "Pedreiras", "Povoado Cabrita", "Caípe Velho", "Rita Cacete"];
+        new Chart(ctxGeo, {
+            type: 'bar',
+            data: {
+                labels: geoLabels.map(l => wrapLabel(l)),
+                datasets: [{
+                    label: 'Volume de Atendimentos',
+                    data: [19, 5, 5, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                    backgroundColor: '#3b82f6',
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false }, ...tooltipConfig.plugins },
+                scales: { 
+                    x: { beginAtZero: true, grid: { color: '#f1f5f9' } }, 
+                    y: { ticks: { font: { size: 10, weight: 'bold' } }, grid: { display: false } } 
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
