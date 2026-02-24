@@ -418,14 +418,14 @@
 
         // 4. Geographical Chart
         const ctxGeo = document.getElementById('geoChart').getContext('2d');
-        const geoLabels = ["Centro Histórico", "Rosa Elze", "Eduardo Gomes", "Tinharé", "Madre Paulina", "Bica dos Pintos", "Tijuquinha", "Lauro Rocha", "Apicum", "Colônia Miranda", "Alto da Divinéa", "Cantinho do Céu", "Cajueiro", "Pov. Cajueiro", "Pedreiras", "Povoado Cabrita", "Caípe Velho", "Rita Cacete"];
+        const geoLabels = ["Centro Histórico", "Rosa Elze", "Eduardo Gomes", "Tinharé", "Madre Paulina", "Bica dos Pintos", "Tijuquinha", "Lauro Rocha", "Apicum", "Colônia Miranda", "Alto da Divinéa", "Cantinho do Céu", "Pov. Cajueiro", "Pedreiras", "Povoado Cabrita", "Caípe Velho", "Rita Cacete"];
         new Chart(ctxGeo, {
             type: 'bar',
             data: {
                 labels: geoLabels.map(l => wrapLabel(l)),
                 datasets: [{
                     label: 'Volume de Atendimentos',
-                    data: [19, 5, 5, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+                    data: [19, 5, 5, 2, 2, 2, 2, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1],
                     backgroundColor: '#3b82f6',
                     borderRadius: 5
                 }]
@@ -445,3 +445,4 @@
 </body>
 
 </html>
+
